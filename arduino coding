@@ -1,0 +1,25 @@
+char data = 0; 
+void setup()  
+{  
+    Serial.begin(9600);                           
+    pinMode(12, OUTPUT);
+    pinMode(13, OUTPUT);
+    digitalWrite(12, HIGH);
+}  
+void loop()  
+{  
+   if(Serial.available() > 0)    
+   {  
+      data = Serial.read();          
+      Serial.print(data);            
+      if(data == '1')                
+         digitalWrite(13, HIGH);    
+      else if(data == '0')          
+         digitalWrite(13, LOW);
+      else if(data == '2')       
+         digitalWrite(12, LOW);
+      else if(data == '3')       
+         digitalWrite(12, HIGH);
+           
+   }  
+}  
